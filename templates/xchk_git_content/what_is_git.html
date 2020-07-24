@@ -1,0 +1,45 @@
+{% extends 'checkerapp/course_content.html' %}
+{% load xchk_instructions %}
+{% load static %}
+{% block course_content %}
+<h1>Wat is Git?</h1>
+<p>Git is een "versiebeheersysteem", dat wil zeggen een systeem om "snapshots" van je project op een ordelijke manier bij te houden. Zonder systeem voor versiebeheer moet je voortdurend backups van oude versies van bestanden maken. Voor je het weet, heb je enorm veel schijfruimte verbruikt en weet je niet meer in welk bestand de interessantste aanpassingen gebeurd zijn. Met een goed systeem voor versiebeheer gaat dat soort werk veel efficiënter. Bovendien kan je de snapshots die je in versiebeheer plaatst ook met anderen delen, zodat teamwerk veel vlotter gaat.</p>
+
+<p>
+Enkele dingen die zonder versiebeheer heel lastig zijn en met versiebeheer erg eenvoudig worden:
+<ul>
+<li>een logboek met allerlei versies van je code bijhouden</li>
+<li>je code delen met collega's (zonder het risico dat ze jouw code overschrijven)</li>
+<li>de verschillen tussen twee specifieke versies van je code bekijken</li>
+<li>experimenteren met twee oplossingen voor een probleem</li>
+<li>tegelijkertijd aan hetzelfde project werken als een collega en achteraf jullie aanpassingen samenvoegen</li>
+</ul>
+<P>
+
+<div class="alert alert-info">Meestal bestaat dat project dat je met Git beheert uit code, maar dat hoeft niet. Je kan er vanalles mee bijhouden, van tekeningen in Inkscape tot recepten. Zelfs binaire data is mogelijk, al komt versiebeheer vooral tot zijn recht voor data in een tekstformaat.</div>
+<div class="alert alert-warning">Alle informatie vanaf dit punt is getest met Git 2.20. Verder wordt verondersteld dat je geen defaultinstellingen hebt aangepast.</div>
+{% endblock %}
+
+{% block assignment %}
+<ol>
+<li>Navigeer in PowerShell (Windows) of Terminal (OS X) via <code>cd</code> naar de map die je hebt ingesteld voor het vak dat je nu aan het volgen bent.</li>
+<li>Maak een nieuw tekstbestand met de naam <filename>{{ uid }}</filename>. Merk op dat hier <em>geen</em> extensie gebruikt is!</li>
+<li>Zoek via een search engine naar het adres van de officiële Git documentatie.</li>
+<li>Volg de link.</li>
+<li>Klik op de link in <a href="#official-book">de afbeelding</a> hieronder.</li>
+<li>Kies links voor de Nederlandse vertaling.</li>
+<li>Kopieer de URL uit je browserbalk naar het bestand <filename>{{ uid }}</filename></li>
+<li>Voer na elkaar uit in je PowerShell of Terminal:
+<ol>
+  <li><code>git add {{ uid }}</code></li>
+  <li><code>git commit -m "URL"</code></li>
+  <li><code>git push</code></li>
+</ol>
+</li>
+<li>Ga op deze website naar de knop "Controleer oefeningen", duid je repository voor dit vak aan, duid het "batch type voor oefeningen zonder side effects" aan, duid de oefening "Wat is Git?" aan en klik op "checken".</li>
+</ol>
+<figure>
+  <img src="{% static "images/content/officieel-boek-git.png" %}" id="official-book"/>
+  <figcaption>Officiële documentatie in boekvorm</figcaption>
+</figure>
+{% endblock %}
