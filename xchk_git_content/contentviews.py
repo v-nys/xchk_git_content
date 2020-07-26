@@ -11,3 +11,9 @@ class WhatIsGitView(ContentView):
                                       RegexCheck(model_name='incorrect_lang'),
                                       Negation(RegexCheck())]),
                      accepting_check=_accepting)
+
+class GitInitView(ContentView):
+
+    uid = 'start_git_init_1'
+    template = 'xchk_git_content/start_git_init.html'
+    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
