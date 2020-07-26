@@ -21,15 +21,14 @@ Enkele dingen die zonder versiebeheer heel lastig zijn en met versiebeheer erg e
 {% endblock %}
 
 {% block assignment %}
-<p class="alert alert-danger">Moet nog uitleg voorzien rond aanmaken van een bestand zonder extensie onder Windows!</p>
 <ol>
-	<li>Navigeer in je shell via <code>cd</code> naar de map die je hebt ingesteld voor het vak dat je nu aan het volgen bent. Onder Windows open je een shell door het programma <code>PowerShell</code> te starten, onder Mac OS of Linux door het programma <code>Terminal</code> te starten.</li>
-<li>Maak een nieuw tekstbestand met de naam <filename>{{ uid }}</filename>. Merk op dat hier <em>geen</em> extensie gebruikt is!</li>
+	<li>Maak een nieuw tekstbestand met de naam <filename>{{ uid }}</filename> <strong>zonder extensie</strong>. Hoe je in kladblok een bestand maakt zonder extensie, wordt <a href="https://www.techwalla.com/articles/how-to-create-a-file-without-an-extension-with-notepad" target="_blank">hier</a> uitgelegd en <a href="https://youtu.be/CIyc51xVF7U" target="_blank">hier</a> gedemonstreerd. Hoe je dat in TextEdit doet onder Mac OS, wordt <a href="https://apple.stackexchange.com/questions/297613/how-do-i-force-textedit-to-not-add-txt-extension-sierra" target="_blank">hier</a> uitgelegd.</li>
 <li>Zoek via een zoekmachine naar keuze (Google, Bing, DuckDuckGo,...) naar het adres van de officiële Git documentatie.</li>
 <li>Volg de link.</li>
 <li>Klik op de link in <a href="#official-book">de afbeelding</a> hieronder.</li>
 <li>Kies links voor de <strong>Nederlandse</strong> vertaling.</li>
 <li>Kopieer de URL uit je browserbalk naar het bestand <filename>{{ uid }}</filename></li>
+<li>Navigeer in je shell via <code>cd</code> naar de map die je hebt ingesteld voor het vak dat je nu aan het volgen bent. Onder Windows open je een shell door het programma <code>PowerShell</code> te starten, onder Mac OS of Linux door het programma <code>Terminal</code> te starten.</li>
 <li>Voer na elkaar uit in je PowerShell of Terminal:
 <ol>
   <li><code>git add {{ uid }}</code></li>
