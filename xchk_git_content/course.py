@@ -15,5 +15,5 @@ course = Course('git',
                  (GitRemotesConceptView,[GitStagesView]),
                  (GitStagesView,[GitInitView]),
                  (GitInitView,[WhatIsGitView]),
-                 (WhatIsGitView,[basecv.ImpossibleNodeView])],
+                 (WhatIsGitView,[])],
                 "git@github.com:v-nys/git-modeloplossingen.git")
