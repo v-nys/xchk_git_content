@@ -17,3 +17,9 @@ class GitInitView(ContentView):
     uid = 'start_git_init_1'
     template = 'xchk_git_content/start_git_init.html'
     strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+
+class GitStagesView(ContentView):
+
+    uid = 'git_stages_1'
+    template = 'xchk_git_content/git_stages.html'
+    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
