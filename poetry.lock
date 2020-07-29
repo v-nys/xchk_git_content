@@ -132,9 +132,9 @@ regex = ">=2020.7.14,<2021.0.0"
 xchk-core = ">=0.1.0"
 
 [metadata]
-content-hash = "d7d701fa297d2632f1cd3e6eefb7c4e483084d624ad697d4bedef098bc081280"
+content-hash = "8534e9d44ed01d2ce40a8b48305f339356bae049abb90891bd0dc94cb4cf871e"
 lock-version = "1.0"
-python-versions = "^3.8"
+python-versions = "^3.7"
 
 [metadata.files]
 django = [
