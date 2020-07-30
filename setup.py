@@ -13,7 +13,7 @@ install_requires = \
 
 setup_kwargs = {
     'name': 'xchk-git-content',
-    'version': '0.1.7',
+    'version': '0.1.8',
     'description': 'Course material related to Git for the xchk teaching framework',
     'long_description': None,
     'author': 'Vincent Nys',
@@ -24,6 +24,7 @@ setup_kwargs = {
     'packages': packages,
     'package_data': package_data,
     'install_requires': install_requires,
+    'dependency_links'=['http://github.com/v-nys/xchk_regex_strategies/tarball/master#egg=xchk-regex-strategies-1.0.2'],
     'python_requires': '>=3.7,<4.0',
 }
 
