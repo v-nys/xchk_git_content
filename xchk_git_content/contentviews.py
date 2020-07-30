@@ -1,5 +1,5 @@
-from xchk.contentviews import ContentView
-from xchk.strats import *
+from xchk_core.contentviews import ContentView
+from xchk_core.strats import *
 from xchk_regex_strategies import RegexCheck
 
 class WhatIsGitView(ContentView):

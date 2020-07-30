@@ -125,14 +125,14 @@ description = "Checking strategies for xchk based around regular expressions."
 name = "xchk-regex-strategies"
 optional = false
 python-versions = ">=3.7,<4.0"
-version = "0.1.0"
+version = "0.1.1"
 
 [package.dependencies]
 regex = ">=2020.7.14,<2021.0.0"
 xchk-core = ">=0.1.0"
 
 [metadata]
-content-hash = "8534e9d44ed01d2ce40a8b48305f339356bae049abb90891bd0dc94cb4cf871e"
+content-hash = "8e95a0a38271bf3a17f38d8ac8291e2aecc2a469f5c652e33c72ed06ca2bbfa6"
 lock-version = "1.0"
 python-versions = "^3.7"
 
@@ -226,6 +226,6 @@ xchk-core = [
     {file = "xchk_core-0.1.0-py3-none-any.whl", hash = "sha256:cfd715dd242f20b459b2bc5d38333e11e85be0b724afd0b6d100c17a0c044237"},
 ]
 xchk-regex-strategies = [
-    {file = "xchk-regex-strategies-0.1.0.tar.gz", hash = "sha256:af6aa862b73e8aff6ddf2bc21d8b822cec48a9e61adbb4f6f4264443ba3bef84"},
-    {file = "xchk_regex_strategies-0.1.0-py3-none-any.whl", hash = "sha256:8e847b75b49023bf1908ac0c648b573cdd52b6333b7b6d070d753b8d90982df9"},
+    {file = "xchk-regex-strategies-0.1.1.tar.gz", hash = "sha256:64fceab10bb02bf2e768e031a1e9a2d63c61a68bc7266ef37aa7c793a12dbaab"},
+    {file = "xchk_regex_strategies-0.1.1-py3-none-any.whl", hash = "sha256:50ee685e623f3a27bc33391cd4dea64af70d48bbfb42612b95efd58e2525f86f"},
 ]

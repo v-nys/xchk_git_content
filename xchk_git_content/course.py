@@ -1,5 +1,5 @@
-from xchk import contentviews as basecv
-from xchk.courses import Course
+from xchk_core import contentviews as basecv
+from xchk_core.courses import Course
 from .contentviews import *
 
 course = Course('git',
