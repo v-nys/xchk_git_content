@@ -9,7 +9,7 @@ package_data = \
  'xchk_git_content': ['static/images/*', 'templates/xchk_git_content/*']}
 
 install_requires = \
-['xchk-regex-strategies>=0.1.1,<0.2.0']
+['xchk-regex-strategies>=0.1.1']
 
 setup_kwargs = {
     'name': 'xchk-git-content',
@@ -24,7 +24,7 @@ setup_kwargs = {
     'packages': packages,
     'package_data': package_data,
     'install_requires': install_requires,
-    'dependency_links': ['http://github.com/v-nys/xchk_regex_strategies/tarball/master#egg=xchk-regex-strategies-1.0.2'],
+    'dependency_links': ['http://github.com/v-nys/xchk_regex_strategies/tarball/master#egg=xchk-regex-strategies'],
     'python_requires': '>=3.7,<4.0',
 }
 
