@@ -150,7 +150,7 @@ regex = "^2020.7.14"
 xchk-core = "branch master"
 
 [package.source]
-reference = "12270a39063c9cacabd8033b223012ba6f023c61"
+reference = "812154b311c6251901a2ea95d8cd6ed150450e4e"
 type = "git"
 url = "git@github.com:v-nys/xchk_regex_strategies.git"
 [metadata]
