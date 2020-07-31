@@ -120,23 +120,23 @@ version = "1.6.2"
 
 [[package]]
 category = "main"
-description = ""
+description = "Core functionality for the xchk teaching framework"
 name = "xchk-core"
 optional = false
 python-versions = "^3.7"
 version = "0.1.6"
 
 [package.dependencies]
-django = "^2.2"
-django-enumfield = "^2.0.1"
-graphviz = "^0.14.1"
-pinax-notifications = "^6.0.0"
-python-igraph = "^0.8.2"
+django = ">=2.2,<3.0"
+django-enumfield = ">=2.0.1,<3.0.0"
+graphviz = ">=0.14.1,<0.15.0"
+pinax-notifications = ">=6.0.0,<7.0.0"
+python-igraph = ">=0.8.2,<0.9.0"
 
 [package.source]
-reference = "dc7c5c6ea471ea8512340b15f5e5d6035b014385"
-type = "git"
-url = "git@github.com:v-nys/xchk_core.git"
+reference = ""
+type = "url"
+url = "http://github.com/v-nys/xchk_core/tarball/master"
 [[package]]
 category = "main"
 description = ""
@@ -147,10 +147,10 @@ version = "0.1.2"
 
 [package.dependencies]
 regex = "^2020.7.14"
-xchk-core = "branch master"
+xchk-core = "0.1.6"
 
 [package.source]
-reference = "812154b311c6251901a2ea95d8cd6ed150450e4e"
+reference = "80f1dc4c2591cf7c54741785d2df52a3c85c4471"
 type = "git"
 url = "git@github.com:v-nys/xchk_regex_strategies.git"
 [metadata]
