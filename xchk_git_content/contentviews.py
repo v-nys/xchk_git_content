@@ -4,12 +4,12 @@ from xchk_regex_strategies.strats import RegexCheck
 
 class WhatIsGitView(ContentView):
      
-    _accepting = ConjunctiveCheck([FileExistsCheck(),RegexCheck()])
+    _accepting = ConjunctiveCheck([FileExistsCheck(implicit=True),RegexCheck()])
     uid = 'what_is_git_1'
     template = 'xchk_git_content/what_is_git.html'
     strat = Strategy(refusing_check=DisjunctiveCheck([
                                       Negation(FileExistsCheck()),
-                                      RegexCheck(model_name='incorrect_lang'),
+                                      RegexCheck(model_name='incorrect_lang',implicit=True),
                                       Negation(RegexCheck())]),
                      accepting_check=_accepting)
 
