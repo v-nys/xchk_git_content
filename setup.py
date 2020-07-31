@@ -9,7 +9,7 @@ package_data = \
  'xchk_git_content': ['static/images/*', 'templates/xchk_git_content/*']}
 
 install_requires = \
-['xchk-regex-strategies>=0.1.1']
+['xchk-regex-strategies']
 
 setup_kwargs = {
     'name': 'xchk-git-content',
