@@ -124,7 +124,7 @@ description = "Core functionality for the xchk teaching framework"
 name = "xchk-core"
 optional = false
 python-versions = "^3.7"
-version = "0.1.6"
+version = "0.1.8"
 
 [package.dependencies]
 django = ">=2.2,<3.0"
@@ -143,14 +143,14 @@ description = ""
 name = "xchk-regex-strategies"
 optional = false
 python-versions = "^3.7"
-version = "0.1.2"
+version = "0.1.3"
 
 [package.dependencies]
 regex = "^2020.7.14"
-xchk-core = "0.1.6"
+xchk-core = "0.1.8"
 
 [package.source]
-reference = "80f1dc4c2591cf7c54741785d2df52a3c85c4471"
+reference = "35b59662d8cdfb0ec7ce2f654ecf5e7daab0c4e6"
 type = "git"
 url = "git@github.com:v-nys/xchk_regex_strategies.git"
 [metadata]

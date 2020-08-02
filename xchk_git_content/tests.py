@@ -3,6 +3,8 @@ from django.test import TestCase
 from unittest.mock import Mock, patch, MagicMock
 from xchk_regex_strategies.strats import RegexCheck
 from xchk_core.models import SubmissionV2
+from xchk_core.templatetags.xchk_instructions import node_instructions_2_ul
+from .contentviews import WhatIsGitView
 
 class WhatIsGitRegexCheckTest(TestCase):
 
@@ -47,6 +49,15 @@ class WhatIsGitRegexCheckTest(TestCase):
         with patch('builtins.open',base_mock):
             outcome_analysis = self.txt_vs_regex_check.check_submission(submission,'/tmp/student','/tmp/model',True,1,False)
             self.assertFalse(outcome_analysis.outcome)
+
+# TODO: move to xchk-core package, using different check
+class GeneratedInstructionsTest(TestCase):
+
+    def test_what_is_git_1_instructions(self):
+        view_object = WhatIsGitView()
+        tup = view_object.strat.instructions(view_object.uid)
+        # FIXME: 2-tuple is niet geschikt
+        self.assertEqual(tup,(['Aan minstens een van volgende voorwaarden is voldaan:', ['Je hebt geen bestand met naam what_is_git_1'], ['Je bestand met naam what_is_git_1 matcht niet met een gekend patroon'], 'Er is voldaan aan verborgen voorwaarden. Het systeem zal je na je inzending verwittigen als dit het geval is.'], ['Aan al volgende voorwaarden is voldaan:', ['Je bestand met naam what_is_git_1 matcht met een gekend patroon'], 'Er is voldaan aan verborgen voorwaarden. Het systeem zal je na je inzending verwittigen als dit het geval is.']))
 
 if __name__ == '__main__':
     unittest.main()
