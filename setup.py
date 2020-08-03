@@ -13,7 +13,7 @@ install_requires = \
 
 setup_kwargs = {
     'name': 'xchk-git-content',
-    'version': '0.1.8',
+    'version': '0.1.9',
     'description': 'Course material related to Git for the xchk teaching framework',
     'long_description': None,
     'author': 'Vincent Nys',

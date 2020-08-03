@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "xchk-git-content"
-version = "0.1.8"
+version = "0.1.9"
 description = "Course material related to Git for the xchk teaching framework"
 authors = ["Vincent Nys <vincentnys@gmail.com>"]
 license = "MIT"
