@@ -24,7 +24,7 @@ setup_kwargs = {
     'packages': packages,
     'package_data': package_data,
     'install_requires': install_requires,
-    'dependency_links': ['http://github.com/v-nys/xchk_regex_strategies/tarball/master#egg=xchk-regex-strategies'],
+    'dependency_links': ['http://github.com/v-nys/xchk_regex_strategies/tarball/develop#egg=xchk-regex-strategies'],
     'python_requires': '>=3.7,<4.0',
 }
 
