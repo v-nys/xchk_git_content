@@ -124,7 +124,7 @@ description = "Core functionality for the xchk teaching framework"
 name = "xchk-core"
 optional = false
 python-versions = "^3.7"
-version = "0.1.8"
+version = "0.1.9"
 
 [package.dependencies]
 django = ">=2.2,<3.0"
@@ -144,11 +144,11 @@ description = "Checking strategies for xchk based around regular expressions."
 name = "xchk-regex-strategies"
 optional = false
 python-versions = "^3.7"
-version = "0.1.3"
+version = "0.1.4"
 
 [package.dependencies]
 regex = ">=2020.7.14,<2021.0.0"
-xchk-core = "0.1.8"
+xchk-core = "0.1.9"
 
 [package.source]
 reference = ""
