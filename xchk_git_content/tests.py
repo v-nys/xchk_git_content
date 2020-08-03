@@ -9,7 +9,7 @@ from .contentviews import WhatIsGitView
 class WhatIsGitRegexCheckTest(TestCase):
 
     def setUp(self):
-        self.txt_vs_regex_check = RegexCheck(implicit=False)
+        self.txt_vs_regex_check = RegexCheck()
 
     def _model_and_student_mock(self,model,student):
         base_mock = MagicMock(name='mock for open')
