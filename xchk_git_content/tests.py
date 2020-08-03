@@ -57,7 +57,7 @@ class GeneratedInstructionsTest(TestCase):
     def test_what_is_git_1_instructions(self):
         view_object = WhatIsGitView()
         outcome = view_object.strat.instructions(view_object.uid)
-        self.assertEqual(outcome,StratInstructions(refusing=[AT_LEAST_ONE_TEXT, ['Je hebt geen bestand met naam what_is_git_1'],['Je bestand met naam what_is_git_1 matcht met een gekend patroon'] , ['Je bestand met naam what_is_git_1 matcht niet met een gekend patroon']], accepting=[ALL_OF_TEXT, ['Je hebt een bestand met naam what_is_git_1'], ['Je bestand met naam what_is_git_1 matcht met een gekend patroon']]))
+        self.assertEqual(outcome,StratInstructions(refusing=[AT_LEAST_ONE_TEXT, ['Je hebt geen bestand met naam what_is_git_1'],['Je bestand met naam what_is_git_1 matcht met een andere taal dan Nederlands'], ['Je bestand met naam what_is_git_1 matcht niet met een gekend patroon']], accepting=['Je bestand met naam what_is_git_1 matcht met een gekend patroon']))
 
 if __name__ == '__main__':
     unittest.main()

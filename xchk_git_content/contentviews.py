@@ -1,15 +1,16 @@
 from xchk_core.contentviews import ContentView
 from xchk_core.strats import *
 from xchk_regex_strategies.strats import RegexCheck
+from .strats import MatchesIncorrectLanguageCheck
 
 class WhatIsGitView(ContentView):
      
-    _accepting = ConjunctiveCheck([FileExistsCheck(),RegexCheck()])
+    _accepting = RegexCheck()
     uid = 'what_is_git_1'
     template = 'xchk_git_content/what_is_git.html'
     strat = Strategy(refusing_check=DisjunctiveCheck([
                                       Negation(FileExistsCheck()),
-                                      RegexCheck(model_name='incorrect_lang'),
+                                      MatchesIncorrectLanguageCheck(),
                                       Negation(RegexCheck())]),
                      accepting_check=_accepting)
 
