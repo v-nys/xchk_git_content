@@ -2,7 +2,7 @@
 from setuptools import setup
 
 packages = \
-['xchk_git_content', 'xchk_git_content.migrations']
+['xchk_git_content']
 
 package_data = \
 {'': ['*'],

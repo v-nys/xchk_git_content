@@ -1,7 +1,7 @@
 {% extends 'checkerapp/course_content.html' %}
 {% load xchk_instructions %}
 {% block course_content %}
-<h1>Een repository beginnen: git init</h1>
+<h3>Schriftelijk materiaal</h3>
 <p>Een project dat met Git beheerd wordt, noemen we een "<term>Git repository</term>" of, in het kort "<term>repo</term>". Een repository is niet veel meer dan een gewone map met wat verborgen "metadata". Deze metadata staan je toe te bekijken welke files op welk tijdstip gewijzigd zijn, hoe je veranderingen via het internet gedeeld kunnen worden met collega's, enzovoort.</p>
 <p>Om deze metadata aan te maken, heb je het commando <code>git init</code> nodig. Je voert het uit in de map die je in een volwaardige repository wil veranderen. Je kan hiervoor onder Windows gebruik maken van PowerShell en van Terminal onder OS X.</p>
 <p class="alert alert-warning">Voer nooit <code>git init</code> uit in een submap van een Git repository. Dit leidt tot heel misleidende foutboodschappen. Als je dan niet meteen weet wat er aan de hand is, loop je het risico je projectgeschiedenis ernstig te beschadigen.</p>
@@ -12,6 +12,7 @@ Deze eerste metadata staat in een map met als naam .git, inclusief de punt voora
 De map waarin je git init uitvoert wordt vaak de "<term>root</term>" (Engels voor "wortel") genoemd. Wij zullen deze term ook soms gebruiken.
 </p>
 {% endblock %}
+
 {% block assignment %}
 Maak een bestand met de naam in de automatisch gegenereerde instructies. Beantwoord in dat bestand volgende vragen met één antwoord per regel:
 <ol>
