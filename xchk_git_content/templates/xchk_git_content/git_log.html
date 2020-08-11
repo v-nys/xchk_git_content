@@ -4,14 +4,15 @@
 <h3>Schriftelijk materiaal</h3>
 <p>Een Git repository is als een logboek. Dat houdt in dat je kan terugbladeren. Dat is ook zo. Je kan je projectgeschiedenis bekijken met het commando <code>git log</code>.</p>
 
-In <a href="#figure-1">figuur 1</a> zie je de uitvoer van <code>git log</code> in de repository waarin ik de voorloper van deze cursus bijhield.
+<p>In <a href="#figure-1">figuur 1</a> zie je de uitvoer van <code>git log</code> in de repository waarin ik de voorloper van deze cursus bijhield.</p>
 
 <figure id="#figure-1">
   <img src="{% static "images/output-git-log.png" %}" id="output-git-log"/>
   <figcaption>Voorbeeldoutput <code>git log</code></figcaption>
 </figure>
 
-Merk de herhalende structuur op. Elk blokje is een <strong>commit</strong>. Zie dit als een tekstje in je logboek, of als een checkpoint die je hebt aangemaakt. Merk de verschillende onderdelen van één commit op (kijk telkens links van het blauwe cijfer):
+<p>Merk de herhalende structuur op. Elk blokje is een <strong>commit</strong>. Zie dit als een tekstje in je logboek, of als een checkpoint die je hebt aangemaakt. Merk de verschillende onderdelen van één commit op (kijk telkens links van het blauwe cijfer):
+</p>
 
 <ol>
 	<li>Dit is de "<strong>commit hash</strong>". Dit is een unieke code die wordt afgeleid uit alle data in je repository op het moment dat een commit operatie wordt uitgevoerd. De commit hash is een beetje als een nummer dat een bepaald punt in je logboek uniek aanduidt. Waarom dan niet gewoon tellen vanaf 1? Dat heeft er mee te maken dat jij niet altijd de enige bent die aan je project werkt. Als jij iets toevoegt na nummer 1 en je collega voegt iets anders toe, is het niet meteen duidelijk welke aanpassingen nummer 2 moeten krijgen. Op de klok kan je niet rekenen, want twee computers hebben twee verschillende klokken.<sup><a href="#footnote-1">1</a></sup></li>
