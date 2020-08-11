@@ -1,0 +1,36 @@
+{% extends 'checkerapp/course_content.html' %}
+{% load static %}
+{% block course_content %}
+<h3>Schriftelijk materiaal</h3>
+<p>Als je tot dit punt in de leerstof bent geraakt, heb je al een lokale repository en een remote. In het [inleidend filmpje](https://youtu.be/9qYwoJ6iz-s) hebben we eerst de remote gemaakt op Bitbucket en hebben we daar dan een versie van aangemaakt op onze lokale machine.</p>
+
+<p>Je hoeft niet te starten vanaf Bitbucket. Als je een repository aanmaakt met <code>git init</code>, kan je later een remote toevoegen op Bitbucket.<sup><a href="#footnote-1">1</a></sup></p>
+
+<h4>stap 1: lokale repo aanmaken</h4>
+<p>Dit zou je al moeten kunnen aan de hand van <code>git init</code>.</p>
+
+<h4>stap 2: een "nieuwe repo" aanmaken op Bitbucket</h4>
+<p>Op Bitbucket geef je aan dat je een nieuwe repository wil maken, zoals op volgende figuur. Het maakt niet uit dat deze repository een kopie is van een bestaande repository. Wat Bitbucket betreft, is hij nieuw.</p>
+
+<figure id="#figure-1">
+  <img src="{% static "images/bitbucket-new-repo.png" %}" id="bitbucket-new-repo"/>
+  <figcaption>Nieuwe repository op Bitbucket</figcaption>
+</figure>
+
+<p>Je kan kiezen of je repository private of public is, maar als je een remote wil toevoegen voor een repo die je al hebt kies je om <strong>geen README</strong> aan te maken. <strong>Je kan geen repo aanmaken met bestanden in en die dan koppelen aan een bestaande repo.</strong></p>
+
+<h4>stap 3: remote toevoegen met het HTTPS-protocol</h4>
+<figure id="#figure-2">
+  <img src="{% static "images/bitbucket-remote-via-https.png" %}" id="bitbucket-remote-via-https"/>
+  <figcaption><code>git remote add</code> met een URL op basis van het HTTPS-protocol</figcaption>
+</figure>
+
+{% endblock course_content %}
+
+{% block assignment %}
+<p>Bij deze knoop hoort geen opdracht. Je moet hem gewoon controleren.</p>
+{% endblock assignment %}
+
+{% block post_content %}
+<p id="footnote-1">De remote hoeft niet op <strong>Bitbucket</strong> te staan. Er zijn nog diensten, zoals Github en Gitlab. Je kan zelfs een remote hebben die helemaal niet aan zo'n dienst gelinkt is.</p>
+{% endblock %}
