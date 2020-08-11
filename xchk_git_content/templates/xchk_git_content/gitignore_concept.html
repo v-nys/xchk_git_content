@@ -29,12 +29,12 @@ Je bestand moet letterlijk <code>.gitignore</code> heten, dus met een punt als e
 
 <p>
 Je hebt bijvoorbeeld een bestand <code>.gitignore</code> dat er als volgt uitziet:
-<verbatim>
+<pre>
 a.txt
 b.sql
 d.svg
 cache
-</verbatim>
+</pre>
 </p>
 
 <p>
@@ -49,7 +49,7 @@ Als je dan de files <code>a.txt</code>, <code>b.sql</code>, <code>c.html</code>,
 <p>
 Normaal gesproken<sup><a href="#footnote-3">3</a></sup> matcht een patroon op elk niveau in de bestandenstructuur. Het maakt dus niet uit of een te negeren bestand in de root staat of in een submap. Als je hetzelfde bestand <code>.gitignore</code> hebt als tevoren en je hebt volgende bestandenstructuur:
 
-<verbatim>
+<pre>
 root
 ├── a.txt
 ├── bin
@@ -64,7 +64,7 @@ root
 │   └── urls.txt
 ├── c.html
 └── d.svg
-</verbatim>
+</pre>
 
 Dan kan je <code>c.html</code> en <code>f.pkg</code> (in de map <code>bin/pkg</code>) stagen en committen.
 </p>
@@ -78,7 +78,7 @@ Dan kan je <code>c.html</code> en <code>f.pkg</code> (in de map <code>bin/pkg</c
 Veronderstel dat je begint vanaf volgende bestandenstructuur:
 </p>
 
-<verbatim>
+<pre>
 root
 ├── submap1
 │   ├── 1A.pdf
@@ -103,7 +103,7 @@ root
     │       └── 4.r
     └── submap3B
         └── 3Ba.pdf
-</verbatim>
+</pre>
 
 <p>Indien je je bestand zou hernoemen naar <code>.gitignore</code>, zou het volgende zaken doen:</p>
 
