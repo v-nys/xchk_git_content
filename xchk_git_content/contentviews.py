@@ -1,18 +1,36 @@
+import regex
 from xchk_core.contentviews import ContentView
 from xchk_core.strats import *
 from xchk_regex_strategies.strats import RegexCheck
-from .strats import MatchesIncorrectLanguageCheck
 
 class WhatIsGitView(ContentView):
      
-    _accepting = RegexCheck()
     uid = 'what_is_git_1'
     template = 'xchk_git_content/what_is_git.html'
     title = 'Wat is Git?'
+    _accepted_regex_text = r"""
+    ^                                # begin string
+    \s*                              # optional whitespace
+    https://git\-scm\.com/book/nl/v2 # link
+    \s*                              # optional whitespace
+    $                                # end string
+    """
+    _incorrect_lang_regex_text = r"""
+    ^                           # begin string
+    \s*                         # optional whitespace
+    https://git\-scm\.com/book/ # base link
+    ([^n].+|n[^l].*|nl[^/].+)   # anything but 'nl'
+    /v2                         # rest link
+    \s*                         # optional whitespace
+    $
+    """
+    _incorrect_lang_regex = regex.compile(_incorrect_lang_regex_text,flags=regex.VERBOSE)
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
+    _accepting = RegexCheck(_accepted_regex,pattern_description='de link voor de Nederlandstalige documentatie')
     strat = Strategy(refusing_check=DisjunctiveCheck([
                                       Negation(FileExistsCheck()),
-                                      MatchesIncorrectLanguageCheck(),
-                                      Negation(RegexCheck())]),
+                                      RegexCheck(_incorrect_lang_regex,pattern_description='een andere taal dan het Nederlands'),
+                                      Negation(_accepting)]),
                      accepting_check=_accepting)
 
 class GitInitView(ContentView):

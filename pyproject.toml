@@ -9,7 +9,8 @@ license = "MIT"
 python = "^3.7"
 
 [tool.poetry.dev-dependencies]
-xchk-regex-strategies = {url = "http://github.com/v-nys/xchk_regex_strategies/tarball/develop"}
+xchk-core = {git = "git@github.com:v-nys/xchk_core.git", branch="develop"}
+xchk-regex-strategies = {git = "git@github.com:v-nys/xchk_regex_strategies.git", branch="develop"}
 
 [build-system]
 requires = ["poetry>=0.12"]
