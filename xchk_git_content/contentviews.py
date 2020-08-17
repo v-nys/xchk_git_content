@@ -1,7 +1,7 @@
 import regex
 from xchk_core.contentviews import ContentView
 from xchk_core.strats import *
-from xchk_regex_strategies.strats import RegexCheck
+from xchk_regex_strategies.strats import RegexCheck, UnhelpfulRegexCheck
 
 class WhatIsGitView(ContentView):
      
@@ -51,7 +51,7 @@ class GitInitView(ContentView):
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
     _accepting = RegexCheck(_accepted_regex_text,pattern_description='een modeloplossing')
-    strat = Strategy(refusing_check=Negation(_accepting),accepting_check=_accepting)
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitStagesView(ContentView):
 
@@ -69,14 +69,23 @@ class GitStagesView(ContentView):
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
     _accepting = RegexCheck(_accepted_regex_text,pattern_description='een modeloplossing')
-    strat = Strategy(refusing_check=Negation(_accepting),accepting_check=_accepting)
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitStageChangesView(ContentView):
 
     uid = 'git_stage_changes_1'
     template = 'xchk_git_content/git_stage_changes.html'
     title = 'Data van fase veranderen'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _accepted_regex_text = r"""
+    ^                                           # begin string
+    \s*                                         # optionele whitespace
+    de\ kat\ krabt\ de\ krollen\ van\ de\ trap! # verwachte inhoud
+    \s*                                         # optionele whitespace
+    $                                           # einde string
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
+    _accepting = RegexCheck(_accepted_regex_text,pattern_description='de gevraagde tekst')
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitRemotesConceptView(ContentView):
 
@@ -97,7 +106,23 @@ class GitStatusView(ContentView):
     uid = 'git_status_1'
     template = 'xchk_git_content/git_status.html'
     title = 'Kijken in welke fase je data zich bevindt: git status'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    # benadering omdat dit voor verschillende versies wat anders kan zijn
+    _accepted_regex_text = r"""
+    ^                                           # begin string
+    .*
+    [cC]hanges\ to\ be\ committed:
+    .*
+    git_status_1
+    .*
+    [cC]hanges\ not\ staged\ for\ commit:
+    .*
+    git_status_1
+    .*
+    $                                           # einde string
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
+    _accepting = UnhelpfulRegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitPushView(ContentView):
 
