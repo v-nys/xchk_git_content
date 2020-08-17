@@ -55,7 +55,7 @@ Vaak is er een duidelijke "master copy" van het project. Dit is bijvoorbeeld de 
 {% block assignment %}
 {% autoescape off %}
   {{ custom_data.rendered_mc_qs }}
-{% autoescape on %}
+{% endautoescape %}
 {#<ol class="multiple choice">
   <li>Ik kopieer via Windows explorer mijn volledige git repository van PC A naar PC B. Welke repository is remote van welke andere repository?
     <ol>
