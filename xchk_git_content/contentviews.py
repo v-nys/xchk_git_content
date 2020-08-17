@@ -164,4 +164,17 @@ class GitLogView(ContentView):
     uid = 'git_log_1'
     template = 'xchk_git_content/git_log.html'
     title = 'Een overzicht van je geschiedenis: git log'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _accepted_regex_text = r"""
+    ^                     # begin string
+    \s*                   # optionele whitespace
+    [cC]ommit\ [hH]ash    # eerste antwoord
+    \s*                   # optionele whitespace
+    git\ commit           # tweede antwoord
+    \s*                   # optionele whitespace
+    [cC]ommit\ [mM]essage # eerste antwoord
+    \s*                   # optionele whitespace
+    $                     # einde string
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
+    _accepting = RegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
