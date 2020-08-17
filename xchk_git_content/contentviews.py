@@ -150,13 +150,6 @@ class GitStatusView(ContentView):
     _accepting = UnhelpfulRegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
-class GitPushView(ContentView):
-
-    uid = 'git_push_1'
-    template = 'xchk_git_content/git_push.html'
-    title = 'Data naar een remote versturen: git push'
-    strat = Strategy(refusing_check=Negation(FileExistsCheck()),accepting_check=FileExistsCheck())
-
 class GitAddRemoteView(ContentView):
 
     uid = 'git_add_remote_1'
@@ -164,20 +157,7 @@ class GitAddRemoteView(ContentView):
     title = 'Een nieuwe remote toevoegen'
     strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
 
-class GitStatusAndGitIgnoreView(ContentView):
-
-    uid = 'git_status_and_gitignore_1'
-    template = 'xchk_git_content/git_status_and_gitignore.html'
-    title = 'Het effect van .gitignore op git status'
-    strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
-    
-class GitCloneView(ContentView):
-
-    uid = 'git_clone_1'
-    template = 'xchk_git_content/git_clone.html'
-    title = 'Een lokale kopie van een bestaande repo maken: git clone'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
-
+   
 class GitPullBasicsView(ContentView):
 
     uid = 'git_pull_basics_1'
@@ -204,3 +184,18 @@ class GitLogView(ContentView):
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
     _accepting = RegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
+
+class GitPushView(ContentView):
+
+    uid = 'git_push_1'
+    template = 'xchk_git_content/git_push.html'
+    title = 'Data naar een remote versturen: git push'
+    strat = Strategy(refusing_check=Negation(FileExistsCheck()),accepting_check=FileExistsCheck())
+
+class GitStatusAndGitIgnoreView(ContentView):
+
+    uid = 'git_status_and_gitignore_1'
+    template = 'xchk_git_content/git_status_and_gitignore.html'
+    title = 'Het effect van .gitignore op git status'
+    strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
+ 
