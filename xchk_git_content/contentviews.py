@@ -99,7 +99,20 @@ class GitIgnoreConceptView(ContentView):
     uid = 'gitignore_concept_1'
     template = 'xchk_git_content/gitignore_concept.html'
     title = 'Bestanden uitsluiten van versiebeheer: .gitignore'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _accepted_regex_text = r"""
+    ^
+    \s*
+    cache/?
+    \n
+    \*\.pdf
+    \n
+    1C\.md
+    \s*
+    $
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
+    _accepting = RegexCheck(_accepted_regex_text,pattern_description='de geschikte inhoud van .gitignore file')
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitStatusView(ContentView):
 
