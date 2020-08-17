@@ -105,7 +105,7 @@ class GitRemotesConceptView(ContentView):
                     ("Nee, want als C naar A verwijst, mag A niet terug verwijzen naar C",False,"Lees de omschrijving van een remote. Staat er iets dat zegt dat verwijzingen maar in één richting mogen gaan?"),
                     ("Nee, want B mag niet naar A en C verwijzen",False,"Is het zo dat je maar één remote mag hebben?"),
                     )])
-    custom_data['rendered_mc_qs'] = _multiple_choice_answer_check.render()
+    custom_data = {'rendered_mc_qs': _multiple_choice_answer_check.render()}
     strat = Strategy(refusing_check=Negation(ConjunctiveCheck([FileExistsCheck(),MultipleChoiceFormatCheck(),_multiple_choice_answer_check])),accepting_check=TrueCheck())
 
 class GitIgnoreConceptView(ContentView):
