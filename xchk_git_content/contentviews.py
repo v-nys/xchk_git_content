@@ -38,14 +38,38 @@ class GitInitView(ContentView):
     uid = 'start_git_init_1'
     template = 'xchk_git_content/start_git_init.html'
     title = 'Een repo maken van een gewone map: git init'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _accepted_regex_text = r"""
+    ^         # begin string
+    \s*       # optionele whitespace
+    [rR]epo   # letterlijk eerste antwoord
+    \s*       # optionele whitespace
+    git\ init # tweede antwoord
+    \s*       # optionele whitespace
+    \.git     # derde antwoord
+    \s*       # optionele whitespace
+    $         # einde string
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
+    _accepting = RegexCheck(_accepted_regex_text,pattern_description='een modeloplossing')
+    strat = Strategy(refusing_check=Negation(_accepting),accepting_check=_accepting)
 
 class GitStagesView(ContentView):
 
     uid = 'git_stages_1'
     template = 'xchk_git_content/git_stages.html'
     title = 'Fasen van data in Git'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _accepted_regex_text = r"""
+    ^                   # begin string
+    \s*                 # optionele whitespace
+    [sS]taging\ [aA]rea # eerste antwoord, deels hoofdletterongevoelig
+    \s*                 # optionele whitespace
+    [nN]een?            # tweede antwoord, deels hoofdletterongevoelig
+    \s*                 # optionele whitespace
+    $                   # einde string
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
+    _accepting = RegexCheck(_accepted_regex_text,pattern_description='een modeloplossing')
+    strat = Strategy(refusing_check=Negation(_accepting),accepting_check=_accepting)
 
 class GitStageChangesView(ContentView):
 

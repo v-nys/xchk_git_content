@@ -29,3 +29,24 @@
 
 <p class="alert alert-info">Je kan data niet rechtstreeks in de project history plaatsen. Je moet je wijzigingen altijd eerst "in potlood" noteren voor je ze "in pen" kan noteren.</p>
 {% endblock %}
+
+{% block assignment %}
+<p>Maak een bestand met de naam die vermeld wordt onder "Technische vereisten". Let erop dat je exact dezelfde naam en bestandsextensie gebruikt. Beantwoord in dat bestand volgende vragen met één antwoord per regel.</p>
+
+<ol>
+  <li>Hoe heet de "plaats" die overeenstemt met nota's in potlood? (twee woorden)</li>
+  <li>Staat er in de verborgen map .git iets over wijzigingen in de working directory? (ja/nee)</li>
+</ol>
+
+<p>
+Voer vervolgens uit in je shell (dus via Powershell of Terminal), in je Git repository:
+</p>
+
+<ol>
+	<li><code>git add &lt;naam-van-het-bestand-vermeld-in-de-technische-vereisten&gt;</code> (vul niet letterlijk in, kijk naar de gevraagde bestandsnaam onder "Technische vereisten")</li>
+	<li><code>git commit -m "Antwoorden fasen data"</code></li>
+	<li><code>git push</code></li>
+	<li>Ga tenslotte naar "Deze oefening controleren" onderaan de pagina, de repository waarin je het gevraagde bestand hebt geplaatst en klik op de knop.</li>
+</ol>
+
+{% endblock assignment %}

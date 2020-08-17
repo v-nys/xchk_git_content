@@ -6,7 +6,7 @@
 <p>Om deze metadata aan te maken, heb je het commando <code>git init</code> nodig. Je voert het uit in de map die je in een volwaardige repository wil veranderen. Je kan hiervoor onder Windows gebruik maken van PowerShell en van Terminal onder OS X.</p>
 <p class="alert alert-warning">Voer nooit <code>git init</code> uit in een submap van een Git repository. Dit leidt tot heel misleidende foutboodschappen. Als je dan niet meteen weet wat er aan de hand is, loop je het risico je projectgeschiedenis ernstig te beschadigen.</p>
 <p>
-Deze eerste metadata staat in een map met als naam .git, inclusief de punt vooraan. Op de meeste systemen is deze map standaard onzichtbaar en dat is een goede zaak! Je zou als beginner nooit zaken in deze map moeten wijzigen. Als je deze map beschadigt, ben je mogelijk je projectgeschiedenis kwijt. Als je ze verwijdert, heb je terug een doodnormale map.
+Deze eerste metadata staat in een map met als naam <code>.git</code>, inclusief de punt vooraan. Op de meeste systemen is deze map standaard onzichtbaar en dat is een goede zaak! Je zou als beginner nooit zaken in deze map moeten wijzigen. Als je deze map beschadigt, ben je mogelijk je projectgeschiedenis kwijt. Als je ze verwijdert, heb je terug een doodnormale map.
 </p>
 <p class="alert alert-info">
 De map waarin je git init uitvoert wordt vaak de "<term>root</term>" (Engels voor "wortel") genoemd. Wij zullen deze term ook soms gebruiken.
@@ -24,11 +24,9 @@ Maak een bestand met de naam in de automatisch gegenereerde instructies. Beantwo
 Voer vervolgens in je shell volgende commando's uit. <strong>Je zal de betekenis van deze commando's zeer snel leren, maar nu gebruiken we ze gewoon om de opdracht af te werken.</strong>
 
 <ol>
-	<li><code>git add &lt;naam-van-het-bestand-vermeld-in-gegenereerde-instructies&gt;</code> (vul dit niet letterlijk in, neem de naam over uit de gegenereerde instructies!)</li>
+	<li><code>git add &lt;naam-van-het-bestand-vermeld-in-technische-vereisten&gt;</code> (vul dit niet letterlijk in, neem de naam over uit de technische vereisten!)</li>
 	<li><code>git commit -m "Mijn antwoorden in verband met git init"</code></li>
 	<li><code>git push</code></li>
 	<li>Klik op deze pagina op de knop "Deze oefening controleren".</li>
 </ol>
-
-TODO: zeggen wat gebeurt bij elke mogelijke foutmelding. Of neem stappen op in de foutmeldingen zelf.
 {% endblock %}
