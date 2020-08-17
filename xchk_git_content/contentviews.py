@@ -143,7 +143,7 @@ class GitStatusAndGitIgnoreView(ContentView):
     uid = 'git_status_and_gitignore_1'
     template = 'xchk_git_content/git_status_and_gitignore.html'
     title = 'Het effect van .gitignore op git status'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
     
 class GitCloneView(ContentView):
 
