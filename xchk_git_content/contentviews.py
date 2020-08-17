@@ -142,7 +142,7 @@ class GitPushView(ContentView):
     uid = 'git_push_1'
     template = 'xchk_git_content/git_push.html'
     title = 'Data naar een remote versturen: git push'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    strat = Strategy(refusing_check=Negation(FileExistsCheck()),accepting_check=FileExistsCheck())
 
 class GitAddRemoteView(ContentView):
 
