@@ -150,21 +150,23 @@ class GitStatusView(ContentView):
     _accepting = UnhelpfulRegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
-class GitAddRemoteView(ContentView):
-
-    uid = 'git_add_remote_1'
-    template = 'xchk_git_content/git_add_remote.html'
-    title = 'Een nieuwe remote toevoegen'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
-
    
 class GitPullBasicsView(ContentView):
 
     uid = 'git_pull_basics_1'
     template = 'xchk_git_content/git_pull.html'
     title = 'Wijzigingen op een remote opnemen in je eigen kopie: git pull'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
-    
+    _accepted_regex_text = r"""
+    ^                       # begin string
+    \s*                     # optionele whitespace
+    [Ff]ast[\ \-][Ff]orward # de essentie; schrijfwijze kan misschien verschillen in andere versies
+    \s*                     # optionele whitespace
+    $                       # einde string
+    """
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
+    _accepting = RegexCheck(_accepted_regex_text,pattern_description='de regel NA de regel die begint met "Updating"')
+    strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
+
 class GitLogView(ContentView):
 
     uid = 'git_log_1'
@@ -199,3 +201,9 @@ class GitStatusAndGitIgnoreView(ContentView):
     title = 'Het effect van .gitignore op git status'
     strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
  
+class GitAddRemoteView(ContentView):
+
+    uid = 'git_add_remote_1'
+    template = 'xchk_git_content/git_add_remote.html'
+    title = 'Een nieuwe remote toevoegen'
+    strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
