@@ -2,6 +2,7 @@ import regex
 from xchk_core.contentviews import ContentView
 from xchk_core.strats import *
 from xchk_regex_strategies.strats import RegexCheck, UnhelpfulRegexCheck
+from xchk_multiple_choice_strategies.strats import MultipleChoiceFormatCheck, MultipleChoiceAnswerCheck
 
 class WhatIsGitView(ContentView):
      
@@ -92,9 +93,7 @@ class GitRemotesConceptView(ContentView):
     uid = 'git_remotes_concept_1'
     template = 'xchk_git_content/git_remotes_concept.html'
     title = 'Remotes: gekende kopieën van jouw repository'
-    # TODO
-    # wegwerken vraag of mogelijkheid voorzien om te renderen uit strategie en door te geven aan template
-    strat = Strategy(refusing_check=Negation(ConjunctiveCheck([FileExistsCheck(),MultipleChoiceFormatCheck(),MultipleChoiceAnswerCheck(filename=None,mc_data=[
+    _multiple_choice_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=[
                    ("Ik kopieer via Windows explorer mijn volledige git repository van PC A naar PC B. Welke repository is remote van welke andere repository?",
                     ("alleen A is remote van B",False,"Weet B van waar de data oorspronkelijk afkomstig is?"),
                     ("alleen B is remote van A",False,"Weet A wat er verder met zijn data gebeurd is?"),
@@ -105,7 +104,9 @@ class GitRemotesConceptView(ContentView):
                     ('Nee, want B en C mogen niet allebei de naam "origin" gebruiken',False,"Weten B en C van elkaar welke remotes ze hebben?"),
                     ("Nee, want als C naar A verwijst, mag A niet terug verwijzen naar C",False,"Lees de omschrijving van een remote. Staat er iets dat zegt dat verwijzingen maar in één richting mogen gaan?"),
                     ("Nee, want B mag niet naar A en C verwijzen",False,"Is het zo dat je maar één remote mag hebben?"),
-                    )])])),accepting_check=TrueCheck())
+                    )])
+    custom_data['rendered_mc_qs'] = _multiple_choice_answer_check.render()
+    strat = Strategy(refusing_check=Negation(ConjunctiveCheck([FileExistsCheck(),MultipleChoiceFormatCheck(),_multiple_choice_answer_check])),accepting_check=TrueCheck())
 
 class GitIgnoreConceptView(ContentView):
 

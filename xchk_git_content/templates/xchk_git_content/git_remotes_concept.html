@@ -53,7 +53,10 @@ Vaak is er een duidelijke "master copy" van het project. Dit is bijvoorbeeld de 
 {% endblock course_content %}
 
 {% block assignment %}
-<ol class="multiple choice">
+{% autoescape off %}
+  {{ custom_data.rendered_mc_qs }}
+{% autoescape on %}
+{#<ol class="multiple choice">
   <li>Ik kopieer via Windows explorer mijn volledige git repository van PC A naar PC B. Welke repository is remote van welke andere repository?
     <ol>
       <li>alleen A is remote van B</li>
@@ -71,7 +74,7 @@ Vaak is er een duidelijke "master copy" van het project. Dit is bijvoorbeeld de 
     </ol>
   </li>
 </ol>
-
+#}
 <figure id="fig-remotes-assignment">
   <img src="{% static "xchk_git_content/images/remotes-quiz.png" %}" id="remotes-assignment"/>
   <figcaption>Figuur 2: voorbeeldopstelling remotes</figcaption>
