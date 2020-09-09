@@ -51,7 +51,7 @@ class GitInitView(ContentView):
     $         # einde string
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
-    _accepting = RegexCheck(_accepted_regex_text,pattern_description='een modeloplossing')
+    _accepting = RegexCheck(_accepted_regex,pattern_description='een modeloplossing')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitStagesView(ContentView):
@@ -69,7 +69,7 @@ class GitStagesView(ContentView):
     $                   # einde string
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
-    _accepting = RegexCheck(_accepted_regex_text,pattern_description='een modeloplossing')
+    _accepting = RegexCheck(_accepted_regex,pattern_description='een modeloplossing')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitStageChangesView(ContentView):
@@ -85,7 +85,7 @@ class GitStageChangesView(ContentView):
     $                                           # einde string
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
-    _accepting = RegexCheck(_accepted_regex_text,pattern_description='de gevraagde tekst')
+    _accepting = RegexCheck(_accepted_regex,pattern_description='de gevraagde tekst')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitRemotesConceptView(ContentView):
@@ -125,7 +125,7 @@ class GitIgnoreConceptView(ContentView):
     $
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE)
-    _accepting = RegexCheck(_accepted_regex_text,pattern_description='de geschikte inhoud van .gitignore file')
+    _accepting = RegexCheck(_accepted_regex,pattern_description='de geschikte inhoud van .gitignore file')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitStatusView(ContentView):
@@ -148,7 +148,7 @@ class GitStatusView(ContentView):
     $                                           # einde string
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
-    _accepting = UnhelpfulRegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
+    _accepting = UnhelpfulRegexCheck(_accepted_regex,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
    
@@ -165,7 +165,7 @@ class GitPullBasicsView(ContentView):
     $                       # einde string
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
-    _accepting = RegexCheck(_accepted_regex_text,pattern_description='de regel NA de regel die begint met "Updating"')
+    _accepting = RegexCheck(_accepted_regex,pattern_description='de regel NA de regel die begint met "Updating"')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitLogView(ContentView):
@@ -185,7 +185,7 @@ class GitLogView(ContentView):
     $                     # einde string
     """
     _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
-    _accepting = RegexCheck(_accepted_regex_text,pattern_description='het gevraagde overzicht van de wijzigingen')
+    _accepting = RegexCheck(_accepted_regex,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
 class GitPushView(ContentView):
