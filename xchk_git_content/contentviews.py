@@ -32,7 +32,7 @@ class WhatIsGitView(ContentView):
                                       Negation(FileExistsCheck()),
                                       RegexCheck(_incorrect_lang_regex,pattern_description='een andere taal dan het Nederlands'),
                                       Negation(_accepting)]),
-                     accepting_check=_accepting)
+                     accepting_check=TrueCheck())
 
 class GitInitView(ContentView):
 
@@ -147,7 +147,7 @@ class GitStatusView(ContentView):
     .*
     $                                           # einde string
     """
-    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE | regex.DOTALL)
     _accepting = UnhelpfulRegexCheck(_accepted_regex,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
@@ -164,7 +164,7 @@ class GitPullBasicsView(ContentView):
     \s*                     # optionele whitespace
     $                       # einde string
     """
-    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE | regex.DOTALL)
     _accepting = RegexCheck(_accepted_regex,pattern_description='de regel NA de regel die begint met "Updating"')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
@@ -184,7 +184,7 @@ class GitLogView(ContentView):
     \s*                   # optionele whitespace
     $                     # einde string
     """
-    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE & regex.DOTALL)
+    _accepted_regex = regex.compile(_accepted_regex_text,flags=regex.VERBOSE | regex.DOTALL)
     _accepting = RegexCheck(_accepted_regex,pattern_description='het gevraagde overzicht van de wijzigingen')
     strat = Strategy(refusing_check=DisjunctiveCheck([Negation(FileExistsCheck()),Negation(_accepting)]),accepting_check=_accepting)
 
