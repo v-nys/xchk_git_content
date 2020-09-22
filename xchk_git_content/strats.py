@@ -7,7 +7,6 @@ class IncorrectURLOrLangCheck(CheckingPredicate):
     _accepted_regex_text = r"""
     ^                                   # begin string
     \s*                                 # optional whitespace
-    blaaaaaaaaaaaaa
     https://git\-scm\.com/book/nl(/v2)? # link
     \s*                                 # optional whitespace
     $                                   # end string
@@ -35,10 +34,3 @@ class IncorrectURLOrLangCheck(CheckingPredicate):
 
     def check_submission(self,submission,student_path,desired_outcome,init_check_number,ancestor_has_alternatives,parent_is_negation=False,open=open):
         analysis = IncorrectURLOrLangCheck._unsugared_check.check_submission(submission,student_path,desired_outcome,init_check_number,ancestor_has_alternatives,parent_is_negation=parent_is_negation,open)
-        # TODO
-        # filter out any components for init_check_number
-        # renumber all other components to init_check_number
-        # if there is at least one component with undesired outcome: retain that?
-        # not quite clear yet
-        # also: this seems very ad hoc
-        # might be better to introduce a "squishing disjunction" strategy and "squishing conjunction" strategy
