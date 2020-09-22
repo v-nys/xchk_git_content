@@ -7,6 +7,7 @@ class IncorrectURLOrLangCheck(CheckingPredicate):
     _accepted_regex_text = r"""
     ^                                   # begin string
     \s*                                 # optional whitespace
+    blaaaaaaaaaaaaa
     https://git\-scm\.com/book/nl(/v2)? # link
     \s*                                 # optional whitespace
     $                                   # end string
