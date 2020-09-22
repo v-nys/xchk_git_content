@@ -5,18 +5,18 @@ from xchk_regex_strategies.strats import RegexCheck
 class IncorrectURLOrLangCheck(CheckingPredicate):
 
     _accepted_regex_text = r"""
-    ^                                # begin string
-    \s*                              # optional whitespace
-    https://git\-scm\.com/book/nl/v2 # link
-    \s*                              # optional whitespace
-    $                                # end string
+    ^                                   # begin string
+    \s*                                 # optional whitespace
+    https://git\-scm\.com/book/nl(/v2)? # link
+    \s*                                 # optional whitespace
+    $                                   # end string
     """
     _incorrect_lang_regex_text = r"""
     ^                           # begin string
     \s*                         # optional whitespace
     https://git\-scm\.com/book/ # base link
     ([^n].+|n[^l].*|nl[^/].+)   # anything but 'nl'
-    /v2                         # rest link
+    (/v2)?                      # rest link
     \s*                         # optional whitespace
     $
     """
