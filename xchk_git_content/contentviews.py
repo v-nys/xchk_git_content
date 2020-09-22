@@ -10,19 +10,19 @@ class WhatIsGitView(ContentView):
     template = 'xchk_git_content/what_is_git.html'
     title = 'Wat is Git?'
     _accepted_regex_text = r"""
-    ^                                # begin string
-    \s*                              # optional whitespace
-    https://git\-scm\.com/book/nl/v2 # link
-    \s*                              # optional whitespace
-    $                                # end string
+    ^                                   # begin string
+    \s*                                 # optional whitespace
+    https://git\-scm\.com/book/nl(/v2)? # link
+    \s*                                 # optional whitespace
+    $                                   # end string
     """
     _incorrect_lang_regex_text = r"""
-    ^                           # begin string
-    \s*                         # optional whitespace
-    https://git\-scm\.com/book/ # base link
-    ([^n].+|n[^l].*|nl[^/].+)   # anything but 'nl'
-    /v2                         # rest link
-    \s*                         # optional whitespace
+    ^                              # begin string
+    \s*                            # optional whitespace
+    https://git\-scm\.com/book/    # base link
+    ([^n].+|n[^l].*|nl[^/].+)      # anything but 'nl'
+    (/v2)?                         # rest link
+    \s*                            # optional whitespace
     $
     """
     _incorrect_lang_regex = regex.compile(_incorrect_lang_regex_text,flags=regex.VERBOSE)
