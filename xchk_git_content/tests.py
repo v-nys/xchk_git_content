@@ -9,9 +9,21 @@ from .contentviews import WhatIsGitView, GitStatusView
 
 class WhatIsGitRegexCheckTest(TestCase):
 
-    def test_non_dutch_language_link(self):
+    def test_short_non_dutch_language_link(self):
+        text = r"""https://git-scm.com/book/en"""
+        self.assertTrue(WhatIsGitView._incorrect_lang_regex.fullmatch(text))
+
+    def test_long_non_dutch_language_link(self):
         text = r"""https://git-scm.com/book/en/v2"""
         self.assertTrue(WhatIsGitView._incorrect_lang_regex.fullmatch(text))
+
+    def test_short_dutch_language_link(self):
+        text = r"""https://git-scm.com/book/nl"""
+        self.assertTrue(WhatIsGitView._accepted_regex.fullmatch(text))
+
+    def test_long_dutch_language_link(self):
+        text = r"""https://git-scm.com/book/nl/v2"""
+        self.assertTrue(WhatIsGitView._accepted_regex.fullmatch(text))
 
     def test_non_link(self):
         text = r"""https://ubuntu.com"""
