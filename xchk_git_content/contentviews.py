@@ -208,3 +208,17 @@ class GitAddRemoteView(ContentView):
     template = 'xchk_git_content/git_add_remote.html'
     title = 'Een nieuwe remote toevoegen'
     strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
+
+class GitRmView(ContentView):
+
+    uid = 'git_rm_1'
+    template = 'xchk_git_content/git_rm.html'
+    title = 'Bestanden uit versiebeheer verwijderen'
+    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+
+class GitBasicsSelfTestView(ContentView):
+
+    uid = 'git_basics_self_test_1'
+    template = 'xchk_git_content/git_basics_self_test.html'
+    title = 'Zelftest basis Git'
+    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))

@@ -4,7 +4,8 @@ from .contentviews import *
 
 course = Course('git',
                 'Git',
-                [(GitIgnoreConceptView,[GitStageChangesView]),
+                [(GitBasicsSelfTestView,[GitPullBasicsView,GitRmView,GitAddRemoteView,GitLogView,GitStatusAndGitIgnoreView]),
+                 (GitIgnoreConceptView,[GitStageChangesView]),
                  (GitStatusView,[GitStageChangesView]),
                  (GitPushView,[GitStageChangesView,GitRemotesConceptView]),
                  (GitAddRemoteView,[GitRemotesConceptView]),
