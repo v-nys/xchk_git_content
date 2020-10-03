@@ -38,7 +38,8 @@ class GitInitView(ContentView):
 
     uid = 'start_git_init_1'
     template = 'xchk_git_content/start_git_init.html'
-    title = 'Een repo maken van een gewone map: git init'
+    title = 'git init / git clone'
+    long_title = 'Een repo maken van een gewone map: git init'
     _accepted_regex_text = r"""
     ^         # begin string
     \s*       # optionele whitespace
@@ -58,7 +59,7 @@ class GitStagesView(ContentView):
 
     uid = 'git_stages_1'
     template = 'xchk_git_content/git_stages.html'
-    title = 'Fasen van data in Git'
+    title = 'Fasen van data'
     _accepted_regex_text = r"""
     ^                   # begin string
     \s*                 # optionele whitespace
@@ -76,7 +77,8 @@ class GitStageChangesView(ContentView):
 
     uid = 'git_stage_changes_1'
     template = 'xchk_git_content/git_stage_changes.html'
-    title = 'Data van fase veranderen'
+    title = 'Fase veranderen'
+    long_title = 'Data van fase veranderen'
     _accepted_regex_text = r"""
     ^                                           # begin string
     \s*                                         # optionele whitespace
@@ -92,7 +94,8 @@ class GitRemotesConceptView(ContentView):
 
     uid = 'git_remotes_concept_1'
     template = 'xchk_git_content/git_remotes_concept.html'
-    title = 'Remotes: gekende kopieën van jouw repository'
+    title = 'Remotes'
+    long_title = 'Remotes: gekende kopieën van jouw repository'
     _multiple_choice_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=[
                    ("Ik kopieer via Windows explorer mijn volledige git repository van PC A naar PC B. Welke repository is remote van welke andere repository?",
                     ("alleen A is remote van B",False,"Weet B van waar de data oorspronkelijk afkomstig is?"),
@@ -112,7 +115,8 @@ class GitIgnoreConceptView(ContentView):
 
     uid = 'gitignore_concept_1'
     template = 'xchk_git_content/gitignore_concept.html'
-    title = 'Bestanden uitsluiten van versiebeheer: .gitignore'
+    title = '.gitignore'
+    long_title = 'Bestanden uitsluiten van versiebeheer: .gitignore'
     _accepted_regex_text = r"""
     ^
     \s*
@@ -132,7 +136,8 @@ class GitStatusView(ContentView):
 
     uid = 'git_status_1'
     template = 'xchk_git_content/git_status.html'
-    title = 'Kijken in welke fase je data zich bevindt: git status'
+    title = 'git status'
+    long_title = 'Kijken in welke fase je data zich bevindt: git status'
     # benadering omdat dit voor verschillende versies wat anders kan zijn
     _accepted_regex_text = r"""
     ^                                           # begin string
@@ -156,7 +161,8 @@ class GitPullBasicsView(ContentView):
 
     uid = 'git_pull_basics_1'
     template = 'xchk_git_content/git_pull.html'
-    title = 'Wijzigingen op een remote opnemen in je eigen kopie: git pull'
+    title = 'git pull'
+    long_title = 'Wijzigingen op een remote opnemen in je eigen kopie: git pull'
     _accepted_regex_text = r"""
     ^                       # begin string
     \s*                     # optionele whitespace
@@ -172,7 +178,8 @@ class GitLogView(ContentView):
 
     uid = 'git_log_1'
     template = 'xchk_git_content/git_log.html'
-    title = 'Een overzicht van je geschiedenis: git log'
+    title = 'git log'
+    long_title = 'Een overzicht van je geschiedenis: git log'
     _accepted_regex_text = r"""
     ^                     # begin string
     \s*                   # optionele whitespace
@@ -192,33 +199,37 @@ class GitPushView(ContentView):
 
     uid = 'git_push_1'
     template = 'xchk_git_content/git_push.html'
-    title = 'Data naar een remote versturen: git push'
+    title = 'git push'
+    long_title = 'Data naar een remote versturen: git push'
     strat = Strategy(refusing_check=Negation(FileExistsCheck()),accepting_check=FileExistsCheck())
 
 class GitStatusAndGitIgnoreView(ContentView):
 
     uid = 'git_status_and_gitignore_1'
     template = 'xchk_git_content/git_status_and_gitignore.html'
-    title = 'Het effect van .gitignore op git status'
+    title = '.gitignore + git status'
+    long_title = 'Het effect van .gitignore op git status'
     strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
  
 class GitAddRemoteView(ContentView):
 
     uid = 'git_add_remote_1'
     template = 'xchk_git_content/git_add_remote.html'
-    title = 'Een nieuwe remote toevoegen'
+    title = 'git remote add'
+    long_title = 'Een nieuwe remote toevoegen'
     strat = Strategy(refusing_check=Negation(TrueCheck()),accepting_check=TrueCheck())
 
 class GitRmView(ContentView):
 
     uid = 'git_rm_1'
     template = 'xchk_git_content/git_rm.html'
-    title = 'Bestanden uit versiebeheer verwijderen'
+    title = 'git rm'
+    long_title = 'Bestanden uit versiebeheer verwijderen'
     strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
 
 class GitBasicsSelfTestView(ContentView):
 
     uid = 'git_basics_self_test_1'
     template = 'xchk_git_content/git_basics_self_test.html'
-    title = 'Zelftest basis Git'
+    title = 'zelftest basis'
     strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
