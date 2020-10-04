@@ -98,9 +98,9 @@ class GitRemotesConceptView(ContentView):
     long_title = 'Remotes: gekende kopieën van jouw repository'
     _multiple_choice_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=[
                    ("Ik kopieer via Windows explorer mijn volledige git repository van PC A naar PC B. Welke repository is remote van welke andere repository?",
-                    ("alleen A is remote van B",False,"Weet B van waar de data oorspronkelijk afkomstig is?"),
-                    ("alleen B is remote van A",False,"Weet A wat er verder met zijn data gebeurd is?"),
-                    ("A en B zijn remotes van elkaar",False,"Weet A wat er verder met zijn data gebeurd is? Weet B van waar de data oorspronkelijk afkomstig is?"),
+                    ("alleen A is remote van B",False,"Als A remote is van B, weet B van waar de data oorspronkelijk afkomstig is. Dat is nochtans niet in het algemeen zo als je files kopieert van één PC naar een andere."),
+                    ("alleen B is remote van A",False,"Als B remote is van A, weet A wat er verder met zijn data gebeurd is. Dat kan moeilijk, want B is misschien niet eens aangesloten op het internet..."),
+                    ("A en B zijn remotes van elkaar",False,"Als A en B remotes zijn van elkaar en je hebt de metadata van A naar B gekopieerd, wil dat zeggen dat A zijn eigen remote was. Dat is niet logisch."),
                     ("geen van beide is remote van de ander",True,"Weet A wat er verder met zijn data gebeurd is? Weet B van waar de data oorspronkelijk afkomstig is?")),
                    ("Mogen Git repositories naar elkaar verwijzen zoals in de tekening?",
                     ("Ja",True,"Wordt er ergens één naam gebruikt om naar twee verschillende remotes te verwijzen? Zijn er namen met een speciale betekenis die zorgen dat er iets mis is op de tekening?"),
