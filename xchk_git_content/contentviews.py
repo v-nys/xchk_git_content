@@ -240,4 +240,18 @@ class GitBasicsSelfTestView(ContentView):
     uid = 'git_basics_self_test_1'
     template = 'xchk_git_content/git_basics_self_test.html'
     title = 'zelftest basis'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _multiple_choice_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=[
+                   ("Welk commando gebruik ik om een gewone map te veranderen in een git repository?",
+                    ("git clone",False,"git clone gebruik je om een bestaande repository te kopiëren naar jouw machine..."),
+                    ("git init",True,'je wil de map klaarmaken of "initialiseren" voor gebruik van Git...'),
+                    ("git commit",False,'git commit veronderstelt dat je map al een tijdlijn heeft...')),
+                   ("Wat gebeurt er als je git rm --cached gebruikt?",
+                       ("een file verdwijnt (na commit) van mijn PC, maar niet uit versiebeheer",False,"een file gewoon verwijderen, heb je daar een speciaal git commando voor nodig? Dat kan je ook met het gewone commando rm..."),
+                       ("een file verdwijnt (na commit) uit versiebeheer, maar niet van mijn PC",True,None)),
+                   ("Met welk commando kopieer ik updates die al op een remote staan naar mijn eigen PC?",
+                       ("git pull",True,None),
+                       ("git remote",False,"git remote hebben we op zich nog niet besproken..."),
+                       ("git push",False,"met git push stuur je je eigen updates door naar de remote"),
+                       ("git status",False,"met git status doe je nooit een aanpassing, je vraagt alleen info"))])
+    custom_data = {'rendered_mc_qs': _multiple_choice_answer_check.render()}
+    strat = Strategy(refusing_check=Negation(ConjunctiveCheck([FileExistsCheck(),MultipleChoiceFormatCheck(),_multiple_choice_answer_check])),accepting_check=TrueCheck())
