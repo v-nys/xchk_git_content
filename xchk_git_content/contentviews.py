@@ -225,7 +225,15 @@ class GitRmView(ContentView):
     template = 'xchk_git_content/git_rm.html'
     title = 'git rm'
     long_title = 'Bestanden uit versiebeheer verwijderen'
-    strat = Strategy(refusing_check=TrueCheck(),accepting_check=Negation(TrueCheck()))
+    _multiple_choice_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=[
+                   ("Ik heb een file, badfile.txt, en ik wil een commit aanmaken waar deze file niet in staat. Ik wil hem ook niet meer op mijn PC. Welk commando gebruik je?",
+                    ("git rm badfile.txt",False,"<code>git rm badfile.txt</code> verwijdert de file van je PC en zet het verwijderen van de file in de staging area, maar er vindt nog geen commit plaats."),
+                    ("git rm --cached badfile.txt",False,"<code>git rm --cached badfile.txt</code> zet het verwijderen van de file in de staging area, maar de file blijft op de PC aanwezig en er vindt nog geen commit plaats."),
+                    ("git rm badfile.txt gevolgd door git commit",True,"Meteen na een <code>git rm</code> wijzigt er nooit iets aan de projectgeschiedenis. Je moet de file van alle locaties verwijderen <em>en</em> de wijziging deel maken van de volgende snapshot in de geschiedenis..."),
+                    ("git rm --cached badfile.txt gevolgd door git commit",False,"<code>git rm --cached badfile.txt</code> gevolgd door <code>git commit</code>, verwijdert de file uit de projectgeschiedenis, maar de file blijft op de PC aanwezig."),
+                    )])
+    custom_data = {'rendered_mc_qs': _multiple_choice_answer_check.render()}
+    strat = Strategy(refusing_check=Negation(ConjunctiveCheck([FileExistsCheck(),MultipleChoiceFormatCheck(),_multiple_choice_answer_check])),accepting_check=TrueCheck())
 
 class GitBasicsSelfTestView(ContentView):
 
