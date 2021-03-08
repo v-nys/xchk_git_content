@@ -1,7 +1,10 @@
 {% extends 'checkerapp/course_content.html' %}
 {% load xchk_instructions %}
 {% load static %}
+{% load markdownify %}
 {% block course_content %}
+{{# Test
+Dit is een test|markdownify}}
 <h3>Videomateriaal</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AwrD4pLilWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>Schriftelijk materiaal</h3>
